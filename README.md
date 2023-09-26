@@ -48,3 +48,7 @@ Implement Vue Router to manage navigation between different views and pages.
 
 
 The projected timeline for the completion of this project is estimated to conclude by Friday, September 29, 2023.
+
+
+
+26/07/2023 Login, Signup, Landing Page
