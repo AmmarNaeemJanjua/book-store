@@ -6,7 +6,7 @@ Using Vuetify's form components for a user-friendly interface.
 2. User Home Page:
 Develop a home page to display all books. On top of the page a list of categories will be displayed and the book list will update according to the selected category.
 Fetch book data from an API.
-Implement a search bar using Vuetify's components like <v-text-field>.
+Implement a search bar using Vuetify's components like v-text-field.
 
 3. Product Pages:
 Create a component for displaying book details.
@@ -16,7 +16,7 @@ Utilizing Vuetify's grid system for layout design.
 4. Shopping Cart:
 Develop a shopping cart component.
 Allow users to add books, modify quantities, and remove items.
-Utilizing Vuetify's components like <v-list>, <v-btn>, and <v-dialog> for cart interaction.
+Utilizing Vuetify's components like v-list, v-btn, and v-dialog for cart interaction.
 
 5. Order Management:
 Create an admin dashboard.
