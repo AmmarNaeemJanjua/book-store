@@ -3,8 +3,8 @@ Create Vue components for user registration and login forms.
 Implement user authentication using custom backend.
 Using Vuetify's form components for a user-friendly interface.
 
-2. Book Catalog and Search:
-Develop a catalog page to display books.
+2. User Home Page:
+Develop a home page to display all books. On top of the page a list of categories will be displayed and the book list will update according to the selected category.
 Fetch book data from an API.
 Implement a search bar using Vuetify's components like <v-text-field>.
 
