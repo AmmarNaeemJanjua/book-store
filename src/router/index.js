@@ -1,22 +1,45 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../views/Home.vue'
 import SignupView from '../views/SignupView'
 import LoginView from '../views/LoginView'
+import LandingPage from '../components/LandingPage'
+import WishList from '../components/WishList'
+import UserProfile from '../components/UserProfile'
+import Cart from '../components/Cart'
+import AdminView from '../views/AdminView'
+import AdminPage from '../components/AdminPage'
+import ManageOrders from '../components/ManageOrders'
+import AllUsers from '../components/AllUsers'
+import Invoice from '../components/Invoice'
 
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
-    children: [
+    name: 'Home',
+    component: Home,
+    children:[
       {
         path: '',
-        name: 'Home',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
+        name: 'LandingPage',
+        component: LandingPage,
       },
-    ],
+      {
+        path:'wishlist',
+        name: 'WishList',
+        component: WishList,
+      },
+      {
+        path:'userprofile',
+        name: 'UserProfile',
+        component: UserProfile,
+      },
+      {
+        path:'cart',
+        name: 'Cart',
+        component: Cart,
+      }
+    ]
   },
   {
     path: '/signupview',
@@ -27,6 +50,33 @@ const routes = [
     path: '/loginview',
     name: 'LoginView',
     component: LoginView,
+  },
+  {
+    path: '/adminview',
+    name: 'AdminView',
+    component: AdminView,
+    children:[
+      {
+        path: '',
+        name: 'AdminPage',
+        component: AdminPage,
+      },
+      {
+        path:'manageorders',
+        name: 'ManageOrders',
+        component: ManageOrders,
+      },
+      {
+        path:'allusers',
+        name: 'AllUsers',
+        component: AllUsers,
+      },
+      {
+        path:'invoice',
+        name: 'Invoice',
+        component: Invoice,
+      }
+    ]
   },
 ]
 

@@ -51,4 +51,5 @@ The projected timeline for the completion of this project is estimated to conclu
 
 
 
-26/07/2023 Login, Signup, Landing Page
+26/09/2023 Login, Signup, Landing Page
+27/09/2023 Admin Page, Vuex Store

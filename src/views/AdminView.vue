@@ -1,8 +1,8 @@
 <template>
     <v-app>
-        <AppBar :showUserAppBar="true" />
+        <AppBar :showAdminAppBar="true" />
         <v-main>
-            <RouterView />
+            <RouterView/>
         </v-main>
     </v-app>
 </template>
