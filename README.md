@@ -41,7 +41,7 @@ Ensure your application layout adjusts gracefully on different devices.
 Using Vuetify's responsive grid system and breakpoints for responsiveness.
 
 10. State Management:
-Use Vuex or pinia for managing application state, such as cart contents, user authentication, and global data.
+Use Vuex for managing application state, such as cart contents, user authentication, and global data.
 
 11. Routing:
 Implement Vue Router to manage navigation between different views and pages.
@@ -50,6 +50,6 @@ Implement Vue Router to manage navigation between different views and pages.
 The projected timeline for the completion of this project is estimated to conclude by Friday, September 29, 2023.
 
 
-
+Timeline:
 26/09/2023 Login, Signup, Landing Page
 27/09/2023 Admin Page, Vuex Store

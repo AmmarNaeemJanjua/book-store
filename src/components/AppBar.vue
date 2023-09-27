@@ -38,9 +38,9 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn to="/manageorders">Orders</v-btn>
-      <v-btn to="/allusers">Users</v-btn>
-      <v-btn to="/invoice">Invoice</v-btn>
+      <v-btn to="/adminview/manageorders">Orders</v-btn>
+      <v-btn to="/adminview/allusers">Users</v-btn>
+      <v-btn to="/adminview/invoice">Invoice</v-btn>
     </template>
 
   </v-app-bar>

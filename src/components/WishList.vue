@@ -20,11 +20,11 @@
                         <td class="text-center">{{ product.name }}</td>
                         <td class="text-center">
                             <v-button @click="removeFromWishlist(product)">
-                                <v-icon color="red">mdi-delete</v-icon>
+                                <v-icon color="red" style="cursor: pointer">mdi-delete</v-icon>
                             </v-button>
                             
                             <v-button class="ml-10">
-                                <v-icon color="green">mdi-cart-plus</v-icon>
+                                <v-icon color="green" style="cursor: pointer">mdi-cart-plus</v-icon>
                             </v-button>
                         </td>
                     </tr>
