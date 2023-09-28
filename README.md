@@ -51,5 +51,6 @@ The projected timeline for the completion of this project is estimated to conclu
 
 
 Timeline:
-26/09/2023 Login, Signup, Landing Page
-27/09/2023 Admin Page, Vuex Store
+26/09/2023 Login, Signup, Landing Page.
+27/09/2023 Admin Page, Vuex Store.
+28/09/2023 API Integration (Sign Up, Login, Show Books, Add Books, Manage All Users).
