@@ -1,7 +1,7 @@
 <template>
     <Categories />
     <Carousel />
-    <Books />
+    <Books :showUserActions="true" />
 </template>
 
 <script setup>

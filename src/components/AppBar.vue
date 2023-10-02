@@ -43,10 +43,14 @@
       <v-btn to="/adminview/invoice">Invoice</v-btn>
     </template>
 
+    <v-btn @click="logout"><v-icon>mdi-logout</v-icon></v-btn>
+
   </v-app-bar>
 </template>
   
 <script setup>
+import axios from 'axios';
+
 //
 </script>
   
@@ -63,14 +67,24 @@ export default {
   },
   methods: {
     openUserProfile() {
-      // Implement your logic to open the user profile here
-      // For example, show a dialog or navigate to a profile page
+
       console.log('User Profile Clicked');
     },
     openCart() {
-      // Implement your logic to open the cart here
-      // For example, show a cart drawer or navigate to a cart page
+
       console.log('Cart Clicked');
+    },
+    logout() {
+      const token = JSON.parse(localStorage.getItem('user-info')).token;
+      axios.post('http://10.0.10.220:8080/api/logout', {}, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(response =>{
+        console.log(response.data.message);
+        localStorage.removeItem('user-info');
+      })
     },
   },
 };

@@ -5,9 +5,9 @@
             <v-table>
                 <thead>
                     <tr>
-                        <th class="text-center">Product ID</th>
-                        <th class="text-center">Product Image</th>
-                        <th class="text-center">Product Name</th>
+                        <th class="text-center">Book ID</th>
+                        <th class="text-center">Book Image</th>
+                        <th class="text-center">Book Name</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -22,7 +22,7 @@
                             <v-button @click="removeFromWishlist(product)">
                                 <v-icon color="red" style="cursor: pointer">mdi-delete</v-icon>
                             </v-button>
-                            
+
                             <v-button class="ml-10">
                                 <v-icon color="green" style="cursor: pointer">mdi-cart-plus</v-icon>
                             </v-button>
@@ -36,23 +36,27 @@
   
 <script>
 export default {
-    
+
     data() {
         return {
-            wishlist: [
-                { id: "1", name: "Hello", image: "https://images.booksense.com/images/221/010/9780545010221.jpg"},
-                { id: "2", name: "Hi", image: "https://images.booksense.com/images/221/010/9780545010221.jpg"},
-                { id: "3", name: "Hey", image: "https://images.booksense.com/images/221/010/9780545010221.jpg"},
-            ],
+            wishlist: [],
         };
     },
     methods: {
-        removeFromWishlist(product) {
-            const index = this.wishlist.indexOf(product);
-            if (index !== -1) {
-                this.wishlist.splice(index, 1);
+        async getWishlist() {
+            try {
+                const token = JSON.parse(localStorage.getItem('user-info')).token;
+                
+                const response = await axios.get('http://10.0.10.220:8080/api/wishlist', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                })
+                this.wishlist = response.data.wishlist;
+            } catch (error) {
+                console.error('Error fetching books:', error)
             }
-        },
+        }
     },
 };
 </script>
