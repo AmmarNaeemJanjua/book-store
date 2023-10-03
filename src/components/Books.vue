@@ -1,8 +1,7 @@
 <template>
   <div class="justify-content-center">
-
     <v-row>
-      <v-col v-for="(book, index) in books" :key="index" cols="12" sm="6" md="4" lg="3">
+      <v-col v-for="(book, index) in paginatedBooks" :key="index" cols="12" sm="6" md="4" lg="3">
         <v-card class="mx-auto" max-width="300">
           <v-img class="align-end text-white" height="300" :src="book.cover_image" cover>
             <v-card-title>{{ book.title }}</v-card-title>
@@ -56,10 +55,11 @@
             </v-btn>
           </v-card-actions>
 
-
         </v-card>
       </v-col>
     </v-row>
+    
+    <v-pagination v-model="page" :length="Math.ceil(books.length / perPage)" color="primary" class="mt-4 mb-4"></v-pagination>
   </div>
 </template>
 
@@ -74,7 +74,18 @@ export default {
   data() {
     return {
       books: [],
+      
+      //for pagination
+      page: 1,
+      perPage: 10,
     }
+  },
+  computed: {
+    paginatedBooks() {
+      const startIndex = (this.page - 1) * this.perPage;
+      const endIndex = startIndex + this.perPage;
+      return this.books.slice(startIndex, endIndex);
+    },
   },
   mounted() {
     this.getBooks();
@@ -111,12 +122,10 @@ export default {
     },
 
     async addToCart(book) {
-      const token = JSON.parse(localStorage.getItem('user-info')).token;
-
-      this.$store.dispatch('addToCart', book);
+      // this.$store.dispatch('addToCart', book);
+      this.$store.dispatch("cart/addToCart", book);
 
     },
-
   },
 };
 </script>

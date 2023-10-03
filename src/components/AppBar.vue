@@ -42,8 +42,10 @@
       <v-btn to="/adminview/allusers">Users</v-btn>
       <v-btn to="/adminview/invoice">Invoice</v-btn>
     </template>
-
-    <v-btn @click="logout"><v-icon>mdi-logout</v-icon></v-btn>
+  
+    <v-btn v-if="!user" to="/loginview"><v-icon>mdi-login</v-icon></v-btn>
+    
+    <v-btn v-else @click="logout"><v-icon>mdi-logout</v-icon></v-btn>
 
   </v-app-bar>
 </template>
@@ -64,6 +66,11 @@ export default {
     return {
       search: '',
     };
+  },
+  computed: {
+    user() {
+      return localStorage.getItem('user-info');
+    },
   },
   methods: {
     openUserProfile() {
