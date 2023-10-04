@@ -35,27 +35,31 @@ const actions = {
   removeFromCart({ commit }, book) {
     commit("removeFromCart", book);
   },
+  async confirmOrder(context) {
+    try {
+      const orderItems = {
+        book_id: context.state.cartItems.map(item => item.book.id),
+        quantity: context.state.cartItems.map(item => item.quantity)
+      }
 
-  async confirmOrder(commit){
-    try{
-      const orderData = commit.rootState.cart.cartItems.map(item => ({
-        book_id: item.book.id,
-        quantity: item.quantity,
-      }))
-
+      console.log("Order Items:", orderItems);
+  
+      // Get the user's token from local storage
       const token = JSON.parse(localStorage.getItem('user-info')).token;
+  
+      // Set the headers with the authorization token
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+  
+      // Send a POST request to the API with the headers
+      await axios.post("http://10.0.10.220:8080/api/confirm", orderItems, { headers });
 
-      const response = await axios.post("http://10.0.10.220:8080/api/confirm", orderData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-      },
-      });
-      console.log(response.data.message);
-
-    } catch (error){
+    } catch (error) {
+      // Handle any errors here
       console.error("Error confirming order:", error);
     }
-  }
+  },
 };
 const getters = {
   getCartItems: (state) => state.cartItems,

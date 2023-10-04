@@ -18,7 +18,7 @@ export default {
       categories: [
         { name: 'Fiction' },
         { name: 'Non-Fiction' },
-        { name: 'Science Fiction' },
+        { name: 'Sci-Fiction' },
         { name: 'Mystery' },
       ],
     };

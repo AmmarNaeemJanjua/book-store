@@ -12,6 +12,7 @@ import AdminPage from '../components/AdminPage'
 import ManageOrders from '../components/ManageOrders'
 import AllUsers from '../components/AllUsers'
 import Invoice from '../components/Invoice'
+import BookDetails from '../components/BookDetails'
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
         path:'cart',
         name: 'Cart',
         component: Cart,
+      },
+      {
+        path:'/bookdetails/:id',
+        name: 'BookDetails',
+        component: BookDetails,
       }
     ]
   },

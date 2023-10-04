@@ -5,7 +5,7 @@
       <v-table>
         <thead>
           <tr>
-            <th class="text-center">ID</th>
+            <!-- <th class="text-center">ID</th> -->
             <th class="text-center">Image</th>
             <th class="text-center">Title</th>
             <th class="text-center">Price</th>
@@ -15,17 +15,18 @@
         </thead>
         <tbody>
           <tr v-for="cartItem in cartItems" :key="cartItem.book.id">
-            <td class="text-center">{{ cartItem.book.id }}</td>
+            <!-- <td class="text-center">{{ cartItem.book.id }}</td> -->
             <td class="text-center">
-              <img :src="cartItem.book.cover_image" alt="Product Image" width="80" height="80">
+              <img :src="cartItem.book.cover_image" alt="Product Image" height="90">
             </td>
             <td class="text-center">{{ cartItem.book.title }}</td>
             <td class="text-center">${{ calculatePrice(cartItem) }}</td>
             <td class="text-center">{{ cartItem.quantity }}</td>
             <td class="text-center">
-              <v-btn @click="removeFromCart(cartItem.book)" color="red"><v-icon>mdi-minus</v-icon></v-btn>
-
-              <v-btn @click="incrementQuantity(cartItem)" class="ml-2" color="green"><v-icon>mdi-plus</v-icon></v-btn>
+              <v-row justify="space-around">
+                <v-btn size="x-small" @click="removeFromCart(cartItem.book)" color="red"><v-icon>mdi-minus</v-icon></v-btn>
+                <v-btn size="x-small" @click="incrementQuantity(cartItem)" color="green"><v-icon>mdi-plus</v-icon></v-btn>
+              </v-row>
             </td>
           </tr>
         </tbody>
@@ -34,15 +35,15 @@
   </v-container>
 
   <v-container>
-    <v-container>
-      <v-card width="200">
-        <v-card-title>Total Price</v-card-title>
-        <v-card-text>${{ calculateTotalPrice() }}</v-card-text>
-        <v-card-actions>
-          <v-btn @click="confirmOrder" color="primary">Confirm Order</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-container>
+
+    <v-card width="200">
+      <v-card-title>Total Price</v-card-title>
+      <v-card-text>${{ calculateTotalPrice() }}</v-card-text>
+      <v-card-actions>
+        <v-btn @click="confirmOrder" color="primary">Confirm Order</v-btn>
+      </v-card-actions>
+    </v-card>
+
   </v-container>
 </template>
   
@@ -50,7 +51,6 @@
 export default {
   computed: {
     cartItems() {
-      // return this.$store.getters.getCartItems;
       return this.$store.getters["cart/getCartItems"];
     },
   },
@@ -67,15 +67,18 @@ export default {
     calculateTotalPrice() {
       let totalPrice = 0;
 
-      //if (Array.isArray(this.cartItems)) {
-        for (const cartItem of this.cartItems) {
-          totalPrice += this.calculatePrice(cartItem);
-        }
-      //}
+      for (const cartItem of this.cartItems) {
+        totalPrice += this.calculatePrice(cartItem);
+      }
+
       return totalPrice;
     },
     async confirmOrder() {
-      await this.$store.dispatch("cart/confirmOrder");
+      try {
+        await this.$store.dispatch("cart/confirmOrder");
+      } catch (error) {
+        console.error("Error confirming order:", error);
+      }
     },
   },
 };
