@@ -55,3 +55,4 @@ Timeline:
 27/09/2023 Admin Page, Vuex Store.
 28/09/2023 API Integration (Sign Up, Login, Show Books, Add Books).
 02/10/2023 API Integration (Show All Users, Show All Orders, Delete Book, Edit Book, Logout, Add To Wishlist)
+04/10/2023 API Integration (Book Detail Page, Newsletter Subsciption, Cart, Checkout)
