@@ -111,6 +111,7 @@ export default {
         .then(response => {
           console.log(response.data.message);
           localStorage.removeItem('user-info');
+          window.location.reload();
         })
     },
   },

@@ -9,11 +9,11 @@
 
             <div class="pt-3">
                 <v-row justify="center">
-                    <v-col lg="6">
+                    <v-col lg="5" sm="7">
                         <div class="d-flex">
-                            <v-text-field v-model="email" label="Email" rounded variant="outlined" single-line hide-details
+                            <v-text-field v-model="email" label="Email" variant="outlined" single-line hide-details
                                 class="w-50"></v-text-field>
-                            <v-btn @click="Subscribe()" rounded size="x-large">Subscribe</v-btn>
+                            <v-btn @click="Subscribe()" size="x-large">Subscribe</v-btn>
                         </div>
                     </v-col>
                 </v-row>
