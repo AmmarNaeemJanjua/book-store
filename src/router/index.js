@@ -11,7 +11,6 @@ import AdminView from '../views/AdminView'
 import AdminPage from '../components/AdminPage'
 import ManageOrders from '../components/ManageOrders'
 import AllUsers from '../components/AllUsers'
-import Invoice from '../components/Invoice'
 import BookDetails from '../components/BookDetails'
 
 const routes = [
@@ -76,11 +75,6 @@ const routes = [
         path:'allusers',
         name: 'AllUsers',
         component: AllUsers,
-      },
-      {
-        path:'invoice',
-        name: 'Invoice',
-        component: Invoice,
       }
     ]
   },

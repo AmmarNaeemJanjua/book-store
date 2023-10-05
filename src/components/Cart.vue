@@ -35,16 +35,16 @@
   </v-container>
 
   <v-container>
-
     <v-card width="200">
-      <v-card-title>Total Price</v-card-title>
-      <v-card-text>${{ calculateTotalPrice() }}</v-card-text>
+      <v-card-title>Order Summary</v-card-title>
+      <v-card-text>Price: ${{ calculateTotalPrice() }}</v-card-text>
       <v-card-actions>
         <v-btn @click="confirmOrder" color="primary">Confirm Order</v-btn>
       </v-card-actions>
     </v-card>
-
   </v-container>
+
+  
 </template>
   
 <script>

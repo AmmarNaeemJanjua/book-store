@@ -17,7 +17,7 @@
                         <v-card-text>Rating: {{ bookdetails.details.rating }}</v-card-text>
                         <v-card-text>Price: ${{ specificbook.price }}</v-card-text>
                         <v-card-actions>
-                            <v-btn @click="addToCart">Add to Cart</v-btn>
+                            <v-btn @click="addToCart" color="red">Add to Cart</v-btn>
                         </v-card-actions>
                     </div>
                 </v-card>
@@ -96,8 +96,15 @@ export default {
             }
         },
 
-        addToCart() {
+        async addToCart() {
+            const book = {
+                id: this.specificbook.id,
+                cover_image: this.specificbook.cover_image,
+                title: this.specificbook.title,
+                price: this.specificbook.price,
+            }
 
+            this.$store.dispatch("cart/addToCart", book);
         },
 
     },
